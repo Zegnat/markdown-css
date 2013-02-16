@@ -4,12 +4,19 @@
     @font-size: 14px;
     @line-height: 20px;
     @color: #333;
-    @four-space: 34px;
-    @four-space-css3: ~"4ch"; // some browsers support char spacing
-    @two-space-css3: ~"2ch"; // less does not support ch very well
+    @space-width: 8.5px;
     @ul-tick: "*";
     @strong-char: "__";
     @em-char: "*";
+
+    .paddingLeft (@spaces: 4) {
+        padding-left: @spaces * @space-width;
+        padding-left: unit(@spaces, ch);
+    }
+    .marginLeft (@spaces: 4) {
+        margin-left: @spaces * @space-width;
+        margin-left: unit(@spaces, ch);
+    }
 
     // makes things like pre tags play more nicely with mobile
     word-wrap: break-word;
@@ -91,8 +98,7 @@
     li {
         position: relative;
         display: block;
-        padding-left: @four-space;
-        padding-left: @four-space-css3;
+        .paddingLeft;
     }
 
     li:after {
@@ -115,13 +121,11 @@
     }
 
     pre {
-        margin-left: @four-space;
-        margin-left: @four-space-css3;
+        .marginLeft;
     }
     blockquote {
         position: relative;
-        padding-left: @four-space/2;
-        padding-left: @two-space-css3;
+        .paddingLeft(2);
         overflow: hidden;
 
         &:after {
