@@ -209,6 +209,28 @@
             word-wrap: break-word;
         }
     }
+
+    // CriticMarkup, for giggles.
+    ins {
+        text-decoration: none;
+        &:before { content: "{++"  }
+        &:after  { content:  "++}" }
+    }
+    del {
+        text-decoration: none;
+        &:before { content: "{--"  }
+        &:after  { content:  "--}" }
+    }
+    mark {
+        background-color: inherit;
+        color: inherit;
+        &:before { content: "{=="  }
+        &:after  { content:  "==}" }
+    }
+    span.critic.comment {
+        &:before { content: "{>>"  }
+        &:after  { content:  "<<}" }
+    }
 }
 
 // firefox cannot put position absolute inside table-cell

@@ -194,6 +194,40 @@
   width: 100%;
   word-wrap: break-word;
 }
+.markdown ins {
+  text-decoration: none;
+}
+.markdown ins:before {
+  content: "{++";
+}
+.markdown ins:after {
+  content: "++}";
+}
+.markdown del {
+  text-decoration: none;
+}
+.markdown del:before {
+  content: "{--";
+}
+.markdown del:after {
+  content: "--}";
+}
+.markdown mark {
+  background-color: inherit;
+  color: inherit;
+}
+.markdown mark:before {
+  content: "{==";
+}
+.markdown mark:after {
+  content: "==}";
+}
+.markdown span.critic.comment:before {
+  content: "{>>";
+}
+.markdown span.critic.comment:after {
+  content: "<<}";
+}
 @-moz-document url-prefix() {
   .markdown h1,
   .markdown h2 {
