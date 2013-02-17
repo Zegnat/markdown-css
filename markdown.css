@@ -148,15 +148,17 @@
 .markdown a {
   text-decoration: none;
 }
-.markdown a:before {
+.markdown a[href]:before,
+.markdown a[href]:after {
   content: "[";
   display: inline;
   color: #333333;
 }
-.markdown a:after {
+.markdown a[href]:after {
   content: "](" attr(href) ")";
-  display: inline;
-  color: #333333;
+}
+.markdown a[href][title]:after {
+  content: "](" attr(href) " '" attr(title) "')";
 }
 .markdown code {
   font-weight: 100;

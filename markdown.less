@@ -155,16 +155,19 @@
 
     a {
         text-decoration: none;
-    }
-    a:before {
-        content: "[";
-        display: inline;
-        color: @color;
-    }
-    a:after {
-        content: ~'"](" attr(href) ")"';
-        display: inline;
-        color: @color;
+        &[href] { // Only when it is an actual link.
+            &:before, &:after {
+                content: "[";
+                display: inline;
+                color: @color;
+            }
+            &:after {
+                content: "](" attr(href) ")";
+            }
+            &[title]:after {
+                content: "](" attr(href) " '" attr(title) "')";
+            }
+        }
     }
 
     code { font-weight: 100; }
