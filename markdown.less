@@ -36,12 +36,12 @@
         padding: 0;
     }
 
-    h1, p, ul, ol, pre, blockquote {
+    p, ul, ol, pre, blockquote {
         margin-top: @line-height;
         margin-bottom: @line-height;
     }
 
-    h1 {
+    h1, h2 {
         position: relative;
         display: inline-block;
 
@@ -61,20 +61,23 @@
             bottom: @line-height;
             left: 0;
         }
+
+        // this matches the next sibling after an h1 (apart from a pure text node)
+        // since h1s use padding instead of margin, I did not want to double pad
+        & + * {
+            margin-top: 0;
+        }
     }
 
-    // this matches the next sibling after an h1 (apart from a pure text node)
-    // since h1s use padding instead of margin, I did not want to double pad
-    h1 + * {
-        margin-top: 0;
+    h2:after{
+        content: "----------------------------------------------------------------------------------------------------";
     }
 
-    h2, h3, h4, h5, h6 {
+    h3, h4, h5, h6 {
         position: relative;
         margin-bottom: @line-height;
     }
 
-    h2:before,
     h3:before,
     h4:before,
     h5:before,
@@ -209,7 +212,8 @@
 
 // firefox cannot put position absolute inside table-cell
 @-moz-document url-prefix() {
-    .markdown h1 { display: block; }
+    .markdown h1,
+    .markdown h2 { display: block; }
 }
 
 .markdown-ones {
