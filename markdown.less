@@ -71,6 +71,9 @@
 
     h2:after{
         content: "----------------------------------------------------------------------------------------------------";
+        // unlike the = sign used by an h1 the - sign will wrap to a next line.
+        // specifying nowrap to make sure it sticks to one line below the h2.
+        white-space: nowrap;
     }
 
     h3, h4, h5, h6 {
@@ -82,7 +85,6 @@
     h4:before,
     h5:before,
     h6:before {
-        content: "## ";
         display: inline;
     }
     h3:before {
