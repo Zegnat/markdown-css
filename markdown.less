@@ -1,8 +1,7 @@
-
+@line-height: 20px;
 
 .markdown {
     @font-size: 14px;
-    @line-height: 20px;
     @color: #333;
     @space-width: 8.5px;
     @ul-tick: "*";
@@ -221,5 +220,27 @@
 .markdown-ones {
     ol>li:after {
         content: "1.";
+    }
+}
+
+.markdown-atx {
+    h1, h2 {
+        display: block;
+        position: relative;
+        margin-bottom: @line-height !important;
+        padding: 0;
+
+        &:after {
+            content: "";
+        }
+
+        &:before {
+            display: inline;
+            position: relative;
+            content: "# ";
+        }
+    }
+    h2:before {
+        content: "## ";
     }
 }

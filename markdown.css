@@ -203,3 +203,23 @@
 .markdown-ones ol > li:after {
   content: "1.";
 }
+.markdown-atx h1,
+.markdown-atx h2 {
+  display: block;
+  position: relative;
+  margin-bottom: 20px !important;
+  padding: 0;
+}
+.markdown-atx h1:after,
+.markdown-atx h2:after {
+  content: "";
+}
+.markdown-atx h1:before,
+.markdown-atx h2:before {
+  display: inline;
+  position: relative;
+  content: "# ";
+}
+.markdown-atx h2:before {
+  content: "## ";
+}
