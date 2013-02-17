@@ -9,13 +9,13 @@
     @strong-char: "__";
     @em-char: "*";
 
-    .paddingLeft (@spaces: 4) {
-        padding-left: @spaces * @space-width;
-        padding-left: unit(@spaces, ch);
+    .indent (@a: 4) when (isnumber(@a)) {
+        padding-left: @a * @space-width;
+        padding-left: unit(@a, ch);
     }
-    .marginLeft (@spaces: 4) {
-        margin-left: @spaces * @space-width;
-        margin-left: unit(@spaces, ch);
+    .indent (@a, @b: 4) when (@a = margin-left) {
+        margin-left: @b * @space-width;
+        margin-left: unit(@b, ch);
     }
 
     // makes things like pre tags play more nicely with mobile
@@ -98,7 +98,7 @@
     li {
         position: relative;
         display: block;
-        .paddingLeft;
+        .indent;
     }
 
     li:after {
@@ -121,11 +121,11 @@
     }
 
     pre {
-        .marginLeft;
+        .indent(margin-left);
     }
     blockquote {
         position: relative;
-        .paddingLeft(2);
+        .indent(2);
         overflow: hidden;
 
         &:after {
